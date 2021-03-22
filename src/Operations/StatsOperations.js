@@ -68,8 +68,24 @@ class StatsOperations extends Calculator{
         else { return sorted[base]; }
     }
     //Skewness
+    static Skewness(lst){
+        let total = 0;
+        for (let i = 0; i < lst.length; i++){
+            total += (lst[i] - this.Mean(lst)) *
+                (lst[i] - this.Mean(lst)) *
+                (lst[i] - this.Mean(lst));
+        }
+
+        return total / (lst.length * this.StandardDeviation(lst) *
+            this.StandardDeviation(lst) *
+            this.StandardDeviation(lst));
+    }
+
+
     //Sample Correlation
     //Population Correlation
+
+
     //Z-Score
     //Mean Deviation/Mean Absolute Deviation
 

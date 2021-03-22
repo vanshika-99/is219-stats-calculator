@@ -19,6 +19,9 @@ class Statistics {
     Quartile(lst, q) {
         return this.Result = StatsOperations.Quartile(lst, q);
     }
+    Skewness(lst) {
+        return this.Result = StatsOperations.Skewness(lst)
+    }
 }
 
 module.exports = Statistics;

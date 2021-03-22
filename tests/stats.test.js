@@ -56,3 +56,9 @@ test('Statistics third quartile', () => {
     expect(calc.Result).toBe(4.5);
 });
 
+test('Statistics skewness', () => {
+    let calc = new Statistics();
+    let result = calc.Skewness([1,2, 3, 4, 20]);
+    expect(result).toBe(1.275);
+    expect(calc.Result).toBe(1.275);
+});
