@@ -1,0 +1,25 @@
+{
+  "name": "is219-stats-calculator",
+  "version": "1.0.0",
+  "description": "My First Node App",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node src/index.js",
+    "coverage": "jest --coverage",
+    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
+  },
+  "keywords": [],
+  "author": "Vanshika Patel",
+  "email": "vbp39@njit.edu",
+  "license": "ISC",
+  "dependencies": {
+    "@types/lodash": "^4.14.168",
+    "csv": "^5.3.2",
+    "csv-parse": "latest"
+  },
+  "devDependencies": {
+    "coveralls": "^3.1.0",
+    "jest": "^25.5.4"
+  }
+}
