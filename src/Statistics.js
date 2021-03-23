@@ -20,7 +20,19 @@ class Statistics {
         return this.Result = StatsOperations.Quartile(lst, q);
     }
     Skewness(lst) {
-        return this.Result = StatsOperations.Skewness(lst)
+        return this.Result = StatsOperations.Skewness(lst);
+    }
+    SampleCorrelation(lst1, lst2) {
+        return this.Result = StatsOperations.SampleCorrelation(lst1, lst2);
+    }
+    PopulationCorrelation(lst1, lst2) {
+        return this.Result = StatsOperations.PopulationCorrelation(lst1, lst2);
+    }
+    ZScore(x, xMean, xStdDev) {
+        return this.Result = StatsOperations.ZScore(x, xMean, xStdDev);
+    }
+    MeanDeviation(lst1) {
+        return this.Result = StatsOperations.MeanDeviation(lst1);
     }
 }
 

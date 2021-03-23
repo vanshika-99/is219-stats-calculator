@@ -58,7 +58,35 @@ test('Statistics third quartile', () => {
 
 test('Statistics skewness', () => {
     let calc = new Statistics();
-    let result = calc.Skewness([1,2, 3, 4, 20]);
+    let result = calc.Skewness([1, 2, 3, 4, 20]);
     expect(result).toBe(1.275);
     expect(calc.Result).toBe(1.275);
+});
+
+test('Statistics sample correlation', () => {
+    let calc = new Statistics();
+    let result = calc.SampleCorrelation([10, 20, 30, 40, 50],[4, 12, 1, 20, 3]);
+    expect(result).toBe(0.12);
+    expect(calc.Result).toBe(0.12);
+});
+
+test('Statistics population correlation', () => {
+    let calc = new Statistics();
+    let result = calc.PopulationCorrelation([10, 20, 30, 40, 50],[4, 12, 1, 20, 3]);
+    expect(result).toBe(0.12);
+    expect(calc.Result).toBe(0.12);
+});
+
+test('Statistics Z score', () => {
+    let calc = new Statistics();
+    let result = calc.ZScore([7],[3], [2]);
+    expect(result).toBe(2);
+    expect(calc.Result).toBe(2);
+});
+
+test('Statistics mean deviation', () => {
+    let calc = new Statistics();
+    let result = calc.MeanDeviation([1, 2, 3, 4, 5]);
+    expect(result).toBe(1.2);
+    expect(calc.Result).toBe(1.2);
 });

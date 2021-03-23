@@ -81,13 +81,41 @@ class StatsOperations extends Calculator{
             this.StandardDeviation(lst));
     }
 
-
     //Sample Correlation
-    //Population Correlation
+    static SampleCorrelation(lst1, lst2) {
+        let num = lst1.length;
+        let lst1Mean = StatsOperations.Mean(lst1);
+        let lst2Mean = StatsOperations.Mean(lst2);
+        let numerator = -1 * num * lst1Mean * lst2Mean;
+        for (let i = 0; i < num; i++) {
+            numerator += lst1[i] * lst2[i];
+        }
+        let lst1Denom = (lst1.reduce((a, b) => a + b**2, 0) - num * lst1Mean**2) ** 0.5;
+        let lst2Denom = (lst2.reduce((a, b) => a + b**2, 0) - num * lst2Mean**2) ** 0.5;
+        return numerator / (lst1Denom * lst2Denom);
+    }
 
+    //Population Correlation
+    static PopulationCorrelation (lst1, lst2) {
+        let num = lst1.length;
+        let lst1Mean = StatsOperations.Mean(lst1);
+        let lst2Mean = StatsOperations.Mean(lst2);
+        let cov = 0;
+        for (let i = 0; i < num; i++) {
+            cov += (lst1[i] - lst1Mean) * (lst2[i] = lst2Mean) / n;
+        }
+    }
 
     //Z-Score
-    //Mean Deviation/Mean Absolute Deviation
+    static ZScore (x, xMean, xStdDev) {
+        return (x - xMean) / xStdDev;
+    }
+
+    //Mean Deviation/Mean Absolute Deviation;
+    static MeanDeviation(lst) {
+        let mean = StatsOperations.mean(lst);
+        return lst.reduce((a,b) => a + Math.abs(b-mean), 0) / lst.length;
+    }
 
 }
 
