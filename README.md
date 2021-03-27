@@ -1,0 +1,2 @@
+[![Build Status](https://travis-ci.org/vanshika-99/is219-stats-calculator.svg?branch=master)](https://travis-ci.org/vanshika-99/is219-stats-calculator)
+[![Coverage Status](https://coveralls.io/repos/github/vanshika-99/is219-stats-calculator/badge.svg?branch=master)](https://coveralls.io/github/vanshika-99/is219-stats-calculator?branch=master)
