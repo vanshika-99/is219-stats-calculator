@@ -16,7 +16,8 @@
   "dependencies": {
     "@types/lodash": "^4.14.168",
     "csv": "^5.3.2",
-    "csv-parse": "latest"
+    "csv-parse": "latest",
+    "random-seed": "^0.3.0"
   },
   "devDependencies": {
     "coveralls": "^3.1.0",

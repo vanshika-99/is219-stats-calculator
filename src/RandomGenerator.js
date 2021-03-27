@@ -1,13 +1,14 @@
 class RandomGenerator {
 
-    // -------------1--------------
-    static RandomDecimal(min, max){
+    // #1
+    static RandomDec(min, max){
         return Math.random() * (max - min) + min;
     }
-    static RandomInteger(min, max){
+    static RandomInt(min, max){
         return Math.floor(Math.random() * (max - min) + min);
     }
-    // -------------2--------------
+
+    // #2
     static SeededRandomDec(seed, min, max){
         let rand = require('random-seed').create(seed);
         return rand.floatBetween(min, max);
@@ -16,7 +17,8 @@ class RandomGenerator {
         let rand = require('random-seed').create(seed);
         return rand.intBetween(min, max);
     }
-    // -------------3--------------
+
+    // #3
     static SeededRandomListDec(seed, min, max, n){
         let randlist = [];
         let rand = require('random-seed').create(seed);
@@ -33,23 +35,27 @@ class RandomGenerator {
         }
         return randlist;
     }
-    // -------------4--------------
+
+    // #4
     static RandomOneSelection(list){
-        return list[this.RandomInteger(0, list.length - 1)];
+        return list[this.RandomInt(0, list.length - 1)];
     }
-    // -------------5--------------
+
+    // #5
     static SeededRandomOneSelection(list, seed){
         return list[this.SeededRandomInt(seed, 0, list.length - 1)];
     }
-    // -------------6--------------
+
+    // #6
     static RandomMultiSelection(list, n){
         let randlist = [];
         for(let i=0; i<n; i++){
-            randlist.push(list[this.RandomInteger(0, list.length - 1)]);
+            randlist.push(list[this.RandomInt(0, list.length - 1)]);
         }
         return randlist;
     }
-    // -------------7--------------
+
+    // #7
     static SeededRandomMultiSelection(list, seed, n){
         let randlist = [];
         let rand = require('random-seed').create(seed);

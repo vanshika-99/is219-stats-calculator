@@ -1,14 +1,14 @@
 const RandomGenerator = require("../src//RandomGenerator");
 
 test('1.1 Random Decimal', () => {
-    let rand = RandomGenerator.RandomDecimal(1, 5);
+    let rand = RandomGenerator.RandomDec(1, 5);
     expect(rand).toBeGreaterThanOrEqual(1);
     expect(rand).toBeLessThan(5);
     expect(Number.isInteger(rand)).toBe(false);
 });
 
 test('1.2 Random Integer', () => {
-    let rand = RandomGenerator.RandomInteger(1, 5);
+    let rand = RandomGenerator.RandomInt(1, 5);
     expect(rand).toBeGreaterThanOrEqual(1);
     expect(rand).toBeLessThan(5);
     expect(Number.isInteger(rand)).toBe(true);
