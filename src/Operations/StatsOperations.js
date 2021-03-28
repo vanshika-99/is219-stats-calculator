@@ -46,14 +46,17 @@ class StatsOperations extends Calculator{
     //Variance
     static Variance(lst){
         let mean = this.Mean(lst);
-        return this.Mean(lst.map(function(num){
-            return Math.pow(num-mean, 2);
-        }));
+        let total = 0;
+        for (let i = 0; i < lst.length; i++){
+            total += (lst[i] - mean) ** 2;
+        }
+        let variance = total / (lst.length-1);
+        return parseFloat(variance.toFixed(2));
     }
 
     //Standard Deviation
     static StandardDeviation(lst){
-        return Math.sqrt(this.Variance(lst));
+        return parseFloat(Math.sqrt(this.Variance(lst)).toFixed(2));
     }
 
     //Quartiles
@@ -105,7 +108,7 @@ class StatsOperations extends Calculator{
         let lst2Mean = StatsOperations.Mean(lst2);
         let cov = 0;
         for (let i = 0; i < num; i++) {
-            cov += (lst1[i] - lst1Mean) * (lst2[i] = lst2Mean) / n;
+            cov += (lst1[i] - lst1Mean) * (lst2[i] = lst2Mean) / num;
         }
     }
 
@@ -116,7 +119,7 @@ class StatsOperations extends Calculator{
 
     //Mean Deviation/Mean Absolute Deviation;
     static MeanDeviation(lst) {
-        let mean = this.mean(lst);
+        let mean = this.Mean(lst);
         return lst.reduce((a,b) => a + Math.abs(b-mean), 0) / lst.length;
     }
 

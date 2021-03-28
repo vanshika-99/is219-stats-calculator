@@ -24,15 +24,15 @@ test('Statistics mode', () => {
 test('Statistics variance', () => {
     let calc = new Statistics();
     let result = calc.Variance([1,2,3,4,5]);
-    expect(result).toBe(2);
-    expect(calc.Result).toBe(2);
+    expect(result).toBe(2.50);
+    expect(calc.Result).toBe(2.50);
 });
 
 test('Statistics standard deviation', () => {
     let calc = new Statistics();
     let result = calc.StandardDeviation([1,2,3,4,5])
-    expect(Math.round(result)).toBe(1);
-    expect(Math.round(calc.Result)).toBe(1);
+    expect(result).toBe(1.58);
+    expect(calc.Result).toBe(1.58);
 });
 
 test('Statistics first quartile', () => {

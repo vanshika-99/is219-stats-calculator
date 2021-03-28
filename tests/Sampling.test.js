@@ -1,6 +1,7 @@
 const Random = require('../src/RandomGenerator');
 const Sampling = require('../src/PopulationSampling');
-const StatsCalc = require('../src/Statistics');
+const Statistics = require('../src/Statistics');
+let calc = new Statistics();
 
 let seed = 10;
 let size = 10;
@@ -26,6 +27,7 @@ test('Find margin of error', () => {
     let sampleList = Random.SeededRandomListInt(seed, -100, 100, size);
     let confidence = Math.floor(Random.SeededRandomInt(seed, 50, 95) /  5) * 5;
     let marginOfError = Sampling.marginOfError(sampleList, confidence);
+    console.log(marginOfError);
 
     expect(marginOfError).toBeGreaterThan(0);
 });
@@ -36,8 +38,9 @@ test('Confidence interval', () => {
     let confidence = Math.floor(Random.SeededRandomInt(seed, 50, 95) /  5) * 5;
     let confidenceInterval = Sampling.confidenceInterval(sampleList, confidence);
 
-    let mean = StatsCalc.Mean(sampleList);
+    let mean = calc.Mean(sampleList);
     expect(confidenceInterval).toHaveLength(2);
+    console.log(confidenceInterval);
     expect(confidenceInterval[0]).toBeLessThan(mean);
     expect(confidenceInterval[1]).toBeGreaterThan(mean);
 });
@@ -62,6 +65,6 @@ test('Sample size with standard deviation', () => {
     let size = 10;
     let sampleList = Random.SeededRandomListInt(100, -100, 100, size);
     let confidence = Math.floor(Random.SeededRandomInt(100, 50, 95) /  5) * 5;
-    let stdDev = StatsCalc.StandardDeviation(sampleList);
-    expect(Sampling.sampleSizeWithStdDev(confidence,10, stdDev)).toBeGreaterThan(0);
+    let stdDev = calc.StandardDeviation(sampleList);
+    expect(Sampling.sampleSizeStdDev(confidence,10, stdDev)).toBeGreaterThan(0);
 });

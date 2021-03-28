@@ -1,5 +1,6 @@
 const Random = require('./RandomGenerator');
-const StatsCalc = require('./Statistics');
+const Statistics = require('./Statistics');
+let StatsCalc = new Statistics();
 
 //list of z-scores to be used for sampling
 const ConfidenceIntervalToZScores= new Map([
@@ -38,6 +39,12 @@ class PopulationSampling{
         return randList;
     }
 
+    //Margin of error
+    static marginOfError(lst, confidence){
+        let zScore = this.convertConfidencetoZScore(confidence);
+        let marginOfError = zScore * StatsCalc.StandardDeviation(lst / Math.sqrt(lst.length));
+    }
+
     //Confidence Interval for a sample
     static confidenceInterval(lst, confidence){
         let mean = StatsCalc.Mean(lst);
@@ -45,12 +52,6 @@ class PopulationSampling{
         let upperRange = mean + marginOfError;
         let lowerRange = mean - marginOfError;
         return [lowerRange, upperRange];
-    }
-
-    //Margin of error
-    static marginOfError(lst, confidence){
-        let zScore = this.convertConfidencetoZScore(confidence);
-        let marginOfError = zScore * StatsCalc.StandardDeviation(lst / Math.sqrt(lst.length));
     }
 
     //Cochran's sample size formula
