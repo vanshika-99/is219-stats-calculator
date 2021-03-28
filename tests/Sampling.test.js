@@ -22,28 +22,29 @@ test('Get z-score from confidence percent', () => {
     expect(Sampling.convertConfidencetoZScore(5)).toEqual(0.06);
 });
 
-test('Find margin of error', () => {
-    let size = 10;
-    let sampleList = Random.SeededRandomListInt(seed, -100, 100, size);
-    let confidence = Math.floor(Random.SeededRandomInt(seed, 50, 95) /  5) * 5;
-    let marginOfError = Sampling.marginOfError(sampleList, confidence);
-    console.log(marginOfError);
+// test('Find margin of error', () => {
+//    let size = 10;
+//    let sampleList = Random.SeededRandomListInt(seed, -100, 100, size);
+//    let confidence = Math.floor(Random.SeededRandomInt(seed, 50, 95) /  5) * 5;
+//    let marginOfError = Sampling.marginOfError(sampleList, confidence);
+//    console.log(marginOfError);
 
-    expect(marginOfError).toBeGreaterThan(0);
-});
+//    expect(marginOfError).toBeGreaterThan(0);
+// });
 
-test('Confidence interval', () => {
-    let size = 10;
-    let sampleList = Random.SeededRandomListInt(seed, -100, 100, size);
-    let confidence = Math.floor(Random.SeededRandomInt(seed, 50, 95) /  5) * 5;
-    let confidenceInterval = Sampling.confidenceInterval(sampleList, confidence);
+// test('Confidence interval', () => {
+//    let size = 10;
+//    let sampleList = Random.SeededRandomListInt(seed, -100, 100, size);
+//    let confidence = Math.floor(Random.SeededRandomInt(seed, 50, 95) /  5) * 5;
+//    let confidenceInterval = Sampling.confidenceInterval(sampleList, confidence);
 
-    let mean = calc.Mean(sampleList);
-    expect(confidenceInterval).toHaveLength(2);
-    console.log(confidenceInterval);
-    expect(confidenceInterval[0]).toBeLessThan(mean);
-    expect(confidenceInterval[1]).toBeGreaterThan(mean);
-});
+//    let mean = calc.Mean(sampleList);
+//    expect(confidenceInterval).toHaveLength(2);
+//    console.log(confidenceInterval);
+//    expect(confidenceInterval[0]).toBeLessThan(mean);
+//    expect(confidenceInterval[1]).toBeGreaterThan(mean);
+// });
+
 
 // test('Systematic Sampling', () => {
 //     let size = 10;
