@@ -2,7 +2,7 @@ const StatsOperations = require('./Operations/StatsOperations');
 
 class Statistics {
     Mean(lst) {
-        return this.result = StatsOperations.Mean(lst);
+        return this.Result = StatsOperations.Mean(lst);
     }
     Median(lst) {
         return this.Result = StatsOperations.Median(lst);
@@ -16,8 +16,8 @@ class Statistics {
     StandardDeviation(lst){
         return this.Result = StatsOperations.StandardDeviation(lst);
     }
-    Quartile(lst, q) {
-        return this.Result = StatsOperations.Quartile(lst, q);
+    Quartile(lst) {
+        return this.Result = StatsOperations.Quartile(lst);
     }
     Skewness(lst) {
         return this.Result = StatsOperations.Skewness(lst);

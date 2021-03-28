@@ -1,13 +1,13 @@
 const Calculator = require('../Calculator');
+let calc = new Calculator();
 
 class StatsOperations extends Calculator{
     static Mean(lst) {
         if(lst.length == 0){
             throw("ERROR: cannot accept empty array.");
         }
-        let sum = this.Addition(lst);
         let num = lst.length;
-        return this.Division(sum,num);
+        return calc.Division(calc.Addition(lst),num);
     }
 
     //Median
@@ -57,15 +57,18 @@ class StatsOperations extends Calculator{
     }
 
     //Quartiles
-    static Quartile(lst, q){ //q can be 0.25, 0.5, 0.75
-        let sorted = lst.sort(function(a,b,){return a-b});
-        let idx = (sorted.length -1) * q;
-        let base = Math.floor(idx);
-        let rest = idx-base;
-        if(sorted[base+1] !== undefined){
-            return sorted[base] + rest * (sorted[base+1] - sorted[base]);
+    static Quartile(lst){
+        lst.sort(function(a, b) {return a - b;});
+        let len = lst.length;
+        let first = [], second = [];
+        if (len % 2 === 0) {
+            first = lst.slice(0, len/2);
+            second = lst.slice(len/2, len);
+        } else {
+            first = lst.slice(0, (len-1)/2);
+            second = lst.slice((len-1)/2+1, len);
         }
-        else { return sorted[base]; }
+        return [this.Median(first), this.Median(lst), this.Median(second)];
     }
     //Skewness
     static Skewness(lst){
@@ -113,7 +116,7 @@ class StatsOperations extends Calculator{
 
     //Mean Deviation/Mean Absolute Deviation;
     static MeanDeviation(lst) {
-        let mean = StatsOperations.mean(lst);
+        let mean = this.mean(lst);
         return lst.reduce((a,b) => a + Math.abs(b-mean), 0) / lst.length;
     }
 
